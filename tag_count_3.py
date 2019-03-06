@@ -44,5 +44,5 @@ for i in range(len(chr_list)):
         #bismark_query['de_methyl'].sum()
         bed_list[j].append(bismark_query['de_methyl'].sum())
         
-    tag_bed = pd.DataFrame([bed_list,columns=('chr','start','end','methyl_sum','de_methyl_sum'))
-    tag_bed.to_csv(out_put_file, mode='a',sep='\t')
+    tag_bed = pd.DataFrame(bed_list)
+    tag_bed.to_csv('test.txt', mode='a',sep='\t')          
