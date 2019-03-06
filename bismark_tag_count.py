@@ -39,12 +39,9 @@ for i in range(len(chr_list)):
         y=bed_list[j][2]
 
         bismark_query=bismark.query("@x<= start<=@y",engine='numexpr')
-        #bismark_query['methyl'].sum()
         bed_list[j].append(bismark_query['methyl'].sum())
-        #bismark_query['de_methyl'].sum()
         bed_list[j].append(bismark_query['de_methyl'].sum())
 
-    tag_bed = pd.DataFrame(bed_list)
+    tag_bed = pd.DataFrame(bed_list,index=False,,columns=('chr','start','end','methyl_sum','de_methyl_sum'))
 
-    # columnsをちゃんとする。indexを消す。
-    tag_bed.to_csv(out_put_file, mode='a',sep='\t')
+    tag_bed.to_csv(out_put_file, mode='a',sep='\t',index=False)
