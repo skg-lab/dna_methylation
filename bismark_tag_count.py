@@ -17,8 +17,8 @@ df_bed = pd.read_csv(input_bed_file, sep='\t',names=('chr','start','end'))
 df_bed_list=[]
 df_bismark_list=[]
 
-chr_list=['chr1','chr10','chr11','chr12','chr13','chr14','chr15','chr16','chr17','chr18','chr19','chr2','chr3','chr4','chr5','chr6','chr7','
-chr8','chr9','chrM','chrX','chrY']
+chr_list=['chr1','chr10','chr11','chr12','chr13','chr14','chr15','chr16','chr17','chr18','chr19',
+'chr2','chr3','chr4','chr5','chr6','chr7','chr8','chr9','chrM','chrX','chrY']
 
 for i in range(len(chr_list)):
     df_bed_chr=df_bed[df_bed['chr'] == chr_list[i]]
@@ -43,6 +43,8 @@ for i in range(len(chr_list)):
         bed_list[j].append(bismark_query['methyl'].sum())
         #bismark_query['de_methyl'].sum()
         bed_list[j].append(bismark_query['de_methyl'].sum())
-        
+
     tag_bed = pd.DataFrame(bed_list)
-    tag_bed.to_csv('test.txt', mode='a',sep='\t')          
+
+    # columnsをちゃんとする。indexを消す。
+    tag_bed.to_csv(out_put_file, mode='a',sep='\t')
