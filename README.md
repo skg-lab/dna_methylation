@@ -29,3 +29,11 @@ gcc methyl_diff.c -o methyl_diff
 ```bash
 ./methyl_diff < diff.in > out.txt
 ```
+
+## usage
+
+```
+python hemi_methyl.py test/posi.txt test/nega.txt test/hemi.out.txt -t 8
+```
+
+Bonferroni補正のデフォルトalpha値は0.01
