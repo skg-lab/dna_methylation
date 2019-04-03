@@ -51,4 +51,4 @@ for i in range(len(chr_list)):
     tag_bed['ratio']=beta.ppf(0.5,tag_bed['methyl_sum']+1,tag_bed['de_methyl_sum']+1)
     tag_bed['high']=beta.ppf(0.95,tag_bed['methyl_sum']+1,tag_bed['de_methyl_sum']+1)
 
-    tag_bed.to_csv(out_put_file, mode='a',sep='\t',index=False)
+    tag_bed.to_csv(out_put_file, mode='a',sep='\t',index=False,header=False)
